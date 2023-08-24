@@ -19,10 +19,3 @@ def BitCoinPrice():
     MarketCap=MarketCapitalization[index1:]
 
     return Volume, PricePart.text,CirculatingSupply,MarketCap
-
-
-
-
-
-
-
