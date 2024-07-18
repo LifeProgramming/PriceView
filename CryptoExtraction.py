@@ -3,12 +3,13 @@ from bs4 import BeautifulSoup
 container1=[]
 
 def CoinPrice(coin):
+    container1.clear()
     url=requests.get(f'https://coinmarketcap.com/currencies/{coin}/')
     soup=BeautifulSoup(url.text,'lxml')
-    PricePart=soup.find('div',{'class':'sc-f70bb44c-0 flfGQp flexStart alignBaseline'})
+    PricePart=soup.find('div',{'class':'sc-d1ede7e3-0 gNSoet flexStart alignBaseline'})
     Price=PricePart.find('span')
 
-    VolumePart = soup.find_all('div', {"class": "sc-f70bb44c-0 sc-cd4f73ae-0 iowNqu flexBetween"})
+    VolumePart = soup.find_all('div', {"class": "sc-d1ede7e3-0 sc-c6f90d42-0 bwRagp gcGseR flexBetween"})
     for i in VolumePart:
         container1.append(i.text)
 
@@ -22,4 +23,3 @@ def CoinPrice(coin):
     marketCapPart=list(filter(lambda element: "$" in element,containerDeeper))
     marketCap='$'+marketCapPart[0].split('$')[1]
     return volume_value,Price.text,circulation_supply,marketCap
-
