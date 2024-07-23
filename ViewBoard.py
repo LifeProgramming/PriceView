@@ -46,7 +46,7 @@ def Identify():
     if coin:
         try:
             getcoin = CoinPrice(coin)
-            result = f'Price : {getcoin[1]} \n Trading Volume(24h) : {getcoin[0]} \n Circulating Supply : {getcoin[2]} \n Market Capitalization : {getcoin[3]} '
+            result = f'Price : {getcoin} '
         except:
             result = 'Sorry! Something went wrong!!! Please try again later.'
     else:
